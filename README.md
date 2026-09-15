@@ -2,46 +2,7 @@
 
 > **Every life deserves a second chance.**
 
-Vatsalya is a digital animal-welfare platform that connects the complete journey of an animal in one place.
-
-Instead of keeping rescue, medical care, shelter management, adoption, and follow-up as separate processes, Vatsalya connects them into one continuous lifecycle:
-
-**Report → Rescue → Animal → Medical → Shelter → Adoption Ready → Application → Approval → Adopted → Follow-up**
-
----
-
-## Why Vatsalya?
-
-Animal-welfare work is often spread across different people, organizations, messages, and records. This can make it difficult to know what happened to an animal after it was reported.
-
-Vatsalya solves this by giving every animal a connected digital journey.
-
-A citizen can report an animal in need, a rescue team can respond, a veterinarian can record treatment, a shelter can manage care and capacity, and an adopter can apply for an animal that is ready for a home.
-
-The journey continues even after adoption through follow-up care.
-
----
-
-## Key Features
-
-### Animal Reporting
-Citizens can report animals in need using:
-
-- Animal photo
-- Description
-- Urgency level
-- Location
-
-Reports are stored as rescue cases and can be tracked through the system.
-
-### Rescue Management
-Rescue teams receive incoming cases and manage their progress:
-
-```text
-Pending → Dispatched → Rescued → Closed
-# Vatsalya — Every life deserves a second chance
-
-Vatsalya aims to make animal welfare more connected, transparent, and easier to manage by bringing citizens, rescuers, veterinarians, shelters, adopters, and administrators onto one platform.
+Vatsalya is a digital animal-welfare platform that connects the complete journey of an animal in one place, bringing citizens, rescuers, veterinarians, shelters, adopters, and administrators onto a single, transparent platform.
 
 The goal is simple:
 * Report a life in need.
@@ -49,16 +10,16 @@ The goal is simple:
 * Follow that life all the way to a safe home.
 
 ---
-**
-##  What Makes Vatsalya Different?**
+
+##  What Makes Vatsalya Different?
 
 Instead of isolated modules, Vatsalya connects every major stage through **one connected lifecycle**:
 
-Citizen Report → Rescue → Animal Record → Medical Care → Shelter → Adoption Ready → Application → Approval → Adopted → Follow-up
+**Citizen Report → Rescue → Animal Record → Medical Care → Shelter → Adoption Ready → Application → Approval → Adopted → Follow-up**
 
 This means an animal's information does not get lost when it moves from one department to another.
 
-### ⚡ Automatic Lifecycle Updates
+###  Automatic Lifecycle Updates
 Important actions automatically update related information. For example:
 * **Complete Adoption**
   ↓
@@ -70,7 +31,7 @@ Important actions automatically update related information. For example:
 
 ---
 
-## 👥 Role-Based Workspaces
+##  Role-Based Workspaces
 
 Different users get different dashboards based on their responsibilities:
 
@@ -80,12 +41,62 @@ Different users get different dashboards based on their responsibilities:
 | **ADOPTER** | Browse and apply for animals | `/adopter` |
 | **RESCUER** | Manage rescue cases | `/dashboard` |
 | **VETERINARIAN** | Manage medical care | `/medical` |
-| **SHELTER** | Manage animals, capacity and adoption | `/shelter` |
+| **SHELTER** | Manage animals, capacity, and adoption | `/shelter` |
 | **ADMIN** | Monitor the overall system | `/admin` |
 
 ---
 
-## 📊 Current Modules
+##  Complete Animal Lifecycle
+
+```text
+┌───────────────┐
+│    REPORT     │
+└───────┬───────┘
+        ↓
+┌───────────────┐
+│    RESCUE     │
+└───────┬───────┘
+        ↓
+┌───────────────┐
+│ ANIMAL RECORD │
+└───────┬───────┘
+        ↓
+┌───────────────┐
+│    MEDICAL    │
+└───────┬───────┘
+        ↓
+┌───────────────┐
+│    SHELTER    │
+└───────┬───────┘
+        ↓
+┌───────────────┐
+│ ADOPTION READY│
+└───────┬───────┘
+        ↓
+┌───────────────┐
+│  APPLICATION  │
+└───────┬───────┘
+        ↓
+┌───────────────┐
+│   APPROVAL    │
+└───────┬───────┘
+        ↓
+┌───────────────┐
+│    ADOPTED    │
+└───────┬───────┘
+        ↓
+┌───────────────┐
+│   FOLLOW-UP   │
+└───────────────┘
+# Vatsalya — Animal Welfare Network
+
+> **Every life deserves a second chance.**
+
+Vatsalya is a digital animal-welfare platform that connects the complete journey of an animal in one place, bringing citizens, rescuers, veterinarians, shelters, adopters, and administrators onto a single, transparent platform.
+
+---
+
+##  Current Modules
 
 * ✅ Landing Page
 * ✅ Authentication
@@ -117,7 +128,7 @@ Different users get different dashboards based on their responsibilities:
 
 ---
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```text
 vatsalya/
@@ -130,3 +141,68 @@ vatsalya/
 └── backend/
     ├── src/
     └── pom.xml
+
+##  Run Locally
+
+### 1. Clone the repository
+```bash
+git clone [https://github.com/samruddhiS14/Vatsalya.git](https://github.com/samruddhiS14/Vatsalya.git)
+cd Vatsalya
+
+---
+
+## 2. Start PostgreSQL
+Create a database named:
+
+```sql
+vatsalya_db
+
+---
+
+## 3. Start the Backend
+
+```bash
+cd backend
+export DB_URL="jdbc:postgresql://localhost:5432/vatsalya_db"
+export DB_USERNAME="postgres"
+read -s -p "Enter your PostgreSQL password: " DB_PASSWORD
+echo
+export DB_PASSWORD="$DB_PASSWORD"
+
+mvn clean spring-boot:run
+
+* **Backend URL:** `http://localhost:8080`
+* **Health Check:** `http://localhost:8080/api/health`
+
+---
+
+## 4. Start the Frontend
+
+Open another terminal:
+
+```bash
+cd frontend
+npm install
+npm run dev
+
+* **Frontend URL:** `http://localhost:5173`
+
+---
+
+##  Security Notes
+
+* New user passwords are securely stored using **BCrypt hashing**.
+* Database credentials are supplied through environment variables instead of being hardcoded in source code.
+* Role-based access control is strictly enforced across application dashboards.
+* Never commit real database passwords, API keys, or other secrets to GitHub.
+
+---
+
+##  Vision
+
+Vatsalya aims to make animal welfare more connected, transparent, and easier to manage by bringing citizens, rescuers, veterinarians, shelters, adopters, and administrators onto one platform.
+
+---
+
+ Built with care by the Vatsalya Team  
+*Vatsalya — Every life deserves a second chance.*
