@@ -49,8 +49,8 @@ The goal is simple:
 * Follow that life all the way to a safe home.
 
 ---
-
-## 💡 What Makes Vatsalya Different?
+**
+##  What Makes Vatsalya Different?**
 
 Instead of isolated modules, Vatsalya connects every major stage through **one connected lifecycle**:
 
