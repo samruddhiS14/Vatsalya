@@ -1,44 +1,132 @@
 # Vatsalya — Animal Welfare Network
 
-Lifecycle: Report → Rescue → Animal → Medical → Shelter → Adoption Ready → Application → Approval → Adopted → Follow-up
+> **Every life deserves a second chance.**
 
-## Run locally
+Vatsalya is a digital animal-welfare platform that connects the complete journey of an animal in one place.
 
-### Backend
-```bash
-cd ~/vatsalya/backend
-export DB_URL="jdbc:postgresql://localhost:5432/vatsalya_db"
-export DB_USERNAME="postgres"
-read -s "DB_PASSWORD?Enter your PostgreSQL password: "
-echo
-export DB_PASSWORD="$DB_PASSWORD"
-mvn clean spring-boot:run
-```
+Instead of keeping rescue, medical care, shelter management, adoption, and follow-up as separate processes, Vatsalya connects them into one continuous lifecycle:
 
-Backend health: http://localhost:8080/api/health
+**Report → Rescue → Animal → Medical → Shelter → Adoption Ready → Application → Approval → Adopted → Follow-up**
 
-### Frontend
-```bash
-cd ~/vatsalya/frontend
-npm install
-npm run dev
-```
+---
 
-Frontend: http://localhost:5173
+## Why Vatsalya?
 
-## Roles
+Animal-welfare work is often spread across different people, organizations, messages, and records. This can make it difficult to know what happened to an animal after it was reported.
 
-CITIZEN → /citizen  
-ADOPTER → /adopter  
-RESCUER → /dashboard  
-VETERINARIAN → /medical  
-SHELTER → /shelter  
-ADMIN → /admin
+Vatsalya solves this by giving every animal a connected digital journey.
 
-## Notes
+A citizen can report an animal in need, a rescue team can respond, a veterinarian can record treatment, a shelter can manage care and capacity, and an adopter can apply for an animal that is ready for a home.
 
-- New registrations use BCrypt hashing.
-- Existing legacy plain-text passwords are migrated on successful login.
-- Adoption completion automatically marks the animal ADOPTED, releases shelter capacity when applicable, and creates a 30-day follow-up.
-- Demo shelters and animals are seeded by `DataInitializer` when their demo records do not already exist.
-- Database credentials are intentionally supplied through environment variables instead of committed to source.
+The journey continues even after adoption through follow-up care.
+
+---
+
+## Key Features
+
+### Animal Reporting
+Citizens can report animals in need using:
+
+- Animal photo
+- Description
+- Urgency level
+- Location
+
+Reports are stored as rescue cases and can be tracked through the system.
+
+### Rescue Management
+Rescue teams receive incoming cases and manage their progress:
+
+```text
+Pending → Dispatched → Rescued → Closed
+# Vatsalya — Every life deserves a second chance
+
+Vatsalya aims to make animal welfare more connected, transparent, and easier to manage by bringing citizens, rescuers, veterinarians, shelters, adopters, and administrators onto one platform.
+
+The goal is simple:
+* Report a life in need.
+* Connect the people who can help.
+* Follow that life all the way to a safe home.
+
+---
+
+## 💡 What Makes Vatsalya Different?
+
+Instead of isolated modules, Vatsalya connects every major stage through **one connected lifecycle**:
+
+Citizen Report → Rescue → Animal Record → Medical Care → Shelter → Adoption Ready → Application → Approval → Adopted → Follow-up
+
+This means an animal's information does not get lost when it moves from one department to another.
+
+### ⚡ Automatic Lifecycle Updates
+Important actions automatically update related information. For example:
+* **Complete Adoption**
+  ↓
+* **Animal → ADOPTED**
+  ↓
+* **Shelter Capacity Updated**
+  ↓
+* **Follow-up Created**
+
+---
+
+## 👥 Role-Based Workspaces
+
+Different users get different dashboards based on their responsibilities:
+
+| Role | Responsibility | Dashboard Route |
+| :--- | :--- | :--- |
+| **CITIZEN** | Report animals and track cases | `/citizen` |
+| **ADOPTER** | Browse and apply for animals | `/adopter` |
+| **RESCUER** | Manage rescue cases | `/dashboard` |
+| **VETERINARIAN** | Manage medical care | `/medical` |
+| **SHELTER** | Manage animals, capacity and adoption | `/shelter` |
+| **ADMIN** | Monitor the overall system | `/admin` |
+
+---
+
+## 📊 Current Modules
+
+* ✅ Landing Page
+* ✅ Authentication
+* ✅ Citizen Reporting
+* ✅ Rescue Management
+* ✅ Animal Management
+* ✅ Veterinary Management
+* ✅ Shelter Management
+* ✅ Adoption Workflow
+* ✅ Follow-up Workflow
+* ✅ Admin Dashboard
+* ✅ Role-Based Dashboards
+* ✅ PostgreSQL Integration
+* ✅ Responsive UI
+* ✅ Vatsalya Branding & Logo
+
+---
+
+## 🛠️ Technology Stack
+
+* **Frontend**
+  * React, Vite, Tailwind CSS, React Router, Framer Motion, Lucide React, Recharts, React Leaflet / Leaflet, Swiper
+* **Backend**
+  * Java 17, Spring Boot 3.3, Spring Web, Spring Data JPA, Hibernate, Maven
+* **Database**
+  * PostgreSQL
+* **Security**
+  * BCrypt password hashing, Role-based access control, Environment-based database credentials
+
+---
+
+## 🏗️ Project Structure
+
+```text
+vatsalya/
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+└── backend/
+    ├── src/
+    └── pom.xml
