@@ -96,8 +96,8 @@ export default function Hero() {
             {/* CTA */}
             <div className="flex flex-wrap gap-3 mt-9">
 
-              <a
-                href="/report"
+              <Link
+                to="/report"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white transition-all hover:-translate-y-1"
                 style={{
                   background: 'var(--v-terracotta)',
@@ -106,7 +106,7 @@ export default function Hero() {
               >
                 Report an Animal
                 <ArrowRight size={17} />
-              </a>
+              </Link>
 
               <Link
                 to="/login"
