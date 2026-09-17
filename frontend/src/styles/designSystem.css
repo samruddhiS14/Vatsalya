@@ -1,0 +1,152 @@
+:root {
+  --v-forest: #17352D;
+  --v-forest-light: #24483E;
+
+  --v-plum: #46384F;
+  --v-plum-light: #62546A;
+
+  --v-ivory: #F7F3EA;
+  --v-terracotta: #C96F4A;
+  --v-terracotta-dark: #A95538;
+
+  --v-sage: #A9B9A2;
+  --v-gold: #D7A95B;
+
+  --v-charcoal: #252326;
+  --v-muted: #6D686D;
+  --v-white: #FFFFFF;
+  --v-black: #101412;
+
+  --v-critical: #B94235;
+  --v-warning: #C58A32;
+  --v-success: #4E8061;
+  --v-info: #557B8C;
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-xl: 40px;
+
+  --shadow-soft: 0 10px 35px rgba(70, 56, 79, 0.08);
+  --shadow-card: 0 20px 60px rgba(70, 56, 79, 0.12);
+  --shadow-heavy: 0 30px 80px rgba(16, 20, 18, 0.20);
+
+  --container-width: 1200px;
+  --page-padding: 24px;
+
+  --transition-fast: 160ms ease;
+  --transition-normal: 280ms ease;
+  --transition-slow: 500ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--v-ivory);
+  color: var(--v-charcoal);
+  font-family:
+    "DM Sans",
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--v-terracotta);
+  color: white;
+}
+
+.v-display {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.v-container {
+  width: min(
+    calc(100% - (var(--page-padding) * 2)),
+    var(--container-width)
+  );
+  margin-inline: auto;
+}
+
+.v-section {
+  padding: 110px 0;
+}
+
+.v-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  color: var(--v-terracotta);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.v-heading {
+  margin: 0;
+  color: var(--v-plum);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(38px, 5vw, 68px);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+.v-body {
+  color: var(--v-muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-padding: 18px;
+  }
+
+  .v-section {
+    padding: 75px 0;
+  }
+
+  .v-heading {
+    font-size: clamp(36px, 11vw, 52px);
+  }
+
+  .v-body {
+    font-size: 15px;
+  }
+}
