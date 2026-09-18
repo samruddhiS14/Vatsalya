@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Vatsalya mark</title>
+  <desc id="desc">A heart and paw mark for Vatsalya animal welfare network.</desc>
+  <defs>
+    <linearGradient id="markGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C96F4A"/>
+      <stop offset="1" stop-color="#A95538"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="38" fill="#17352D"/>
+  <path d="M64 38c-10-13-31-8-31 10 0 13 14 23 31 34 17-11 31-21 31-34 0-18-21-23-31-10Z" fill="url(#markGradient)"/>
+  <ellipse cx="42" cy="87" rx="9" ry="13" fill="#F7F3EA"/>
+  <ellipse cx="86" cy="87" rx="9" ry="13" fill="#F7F3EA"/>
+  <ellipse cx="52" cy="77" rx="6" ry="8" fill="#F7F3EA"/>
+  <ellipse cx="76" cy="77" rx="6" ry="8" fill="#F7F3EA"/>
+  <circle cx="64" cy="98" r="8" fill="#F7F3EA"/>
+</svg>

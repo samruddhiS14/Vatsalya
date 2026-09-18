@@ -8,14 +8,14 @@ const columns = [
     links: [
       ['Lifecycle', '#lifecycle'],
       ['Rescue intelligence', '#ai-triage'],
-      ['Medical care', '#ai-triage'],
+      ['Medical care', '/medical'],
       ['Adoption', '#adoption'],
     ],
   },
   {
     title: 'Get involved',
     links: [
-      ['Report an animal', '/login'],
+      ['Report an animal', '/report'],
       ['Volunteer', 'mailto:hello@vatsalya.org'],
       ['Foster', 'mailto:hello@vatsalya.org'],
       ['Adopt', '#adoption'],
@@ -82,13 +82,23 @@ export default function Footer() {
 
               <div className="space-y-4 mt-6">
                 {column.links.map(([label, href]) => (
-                  <a
-                    key={label}
-                    href={href}
-                    className="block text-sm text-white/55 hover:text-white transition"
-                  >
-                    {label}
-                  </a>
+                  {href.startsWith('mailto:') || href.startsWith('#') ? (
+                    <a
+                      key={label}
+                      href={href}
+                      className="block text-sm text-white/55 hover:text-white transition"
+                    >
+                      {label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={label}
+                      to={href}
+                      className="block text-sm text-white/55 hover:text-white transition"
+                    >
+                      {label}
+                    </Link>
+                  )}
                 ))}
               </div>
             </div>

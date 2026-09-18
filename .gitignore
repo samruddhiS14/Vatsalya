@@ -6,4 +6,3 @@ backend/target/
 .DS_Store
 .env
 .env.*
-frontend/public/

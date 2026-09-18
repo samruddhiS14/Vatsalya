@@ -46,9 +46,6 @@ public class AuthController {
         Optional<User> userOpt = userRepository.findByEmailIgnoreCase(email);
         if (userOpt.isEmpty()) return ResponseEntity.status(401).body("Invalid email or password");
         User user = userOpt.get();
-        if (request.getPassword() == null) {
-            return ResponseEntity.status(401).body("Invalid email or password");
-        }
         String stored = user.getPassword() == null ? "" : user.getPassword();
         boolean valid = stored.startsWith("$2a$") || stored.startsWith("$2b$") || stored.startsWith("$2y$")
                 ? passwordEncoder.matches(request.getPassword(), stored)

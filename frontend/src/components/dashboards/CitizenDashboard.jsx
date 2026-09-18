@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   Plus,
   MapPin,
@@ -39,7 +39,6 @@ const statusInfo = {
 export default function CitizenDashboard() {
 
   const user = getCurrentUser();
-  const navigate = useNavigate();
 
   const [cases, setCases] = useState([]);
   const [animals, setAnimals] = useState([]);
@@ -91,7 +90,7 @@ export default function CitizenDashboard() {
 
   function logout() {
     clearSession();
-    navigate("/login", { replace: true });
+    window.location.href = "/login";
   }
 
   const activeCases =

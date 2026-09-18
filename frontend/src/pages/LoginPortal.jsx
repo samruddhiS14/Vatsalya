@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   ArrowRight,
   Eye,
@@ -55,7 +55,6 @@ const roles = [
 
 export default function LoginPortal() {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -80,21 +79,21 @@ export default function LoginPortal() {
 
     try {
       const user = await loginUser(
-        email.trim(),
-        password
-      );
+  email.trim(),
+  password
+);
 
-      const backendRole = user.role?.toUpperCase();
+saveUser(user);
 
-      if (selectedRole?.value && selectedRole.value !== backendRole) {
-        throw new Error(
-          `This account is registered as ${backendRole}. Please choose ${roles.find((role) => role.value === backendRole)?.label || backendRole} to continue.`
-        );
-      }
+const backendRole = user.role?.toUpperCase();
 
-      saveUser(user);
+if (selectedRole?.value && selectedRole.value !== backendRole) {
+  throw new Error(
+    `This account is registered as ${backendRole}. Please choose ${roles.find((role) => role.value === backendRole)?.label || backendRole} to continue.`
+  );
+}
 
-      const destinations = {
+const destinations = {
   CITIZEN: "/citizen",
   ADOPTER: "/adopter",
   RESCUER: "/dashboard",
@@ -112,22 +111,7 @@ if (!destination) {
   );
 }
 
-const returnPath = location.state?.from;
-const allowedReturnPaths = {
-  CITIZEN: ["/report", "/citizen"],
-  ADOPTER: ["/report", "/adopter"],
-  RESCUER: ["/dashboard"],
-  VETERINARIAN: ["/medical"],
-  SHELTER: ["/shelter", "/shelter/create-animal"],
-  ADMIN: ["/admin"]
-};
-
-const nextPath =
-  returnPath && allowedReturnPaths[backendRole]?.includes(returnPath)
-    ? returnPath
-    : destination;
-
-navigate(nextPath, {
+navigate(destination, {
   replace: true
 });
     } catch (err) {
@@ -208,7 +192,18 @@ navigate(nextPath, {
             to="/"
             className="mb-10 flex items-center gap-3 lg:hidden"
           >
-            <img src="/vatsalya-logo.svg" alt="Vatsalya" className="h-11 w-auto" />
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#17352D] text-white">
+              <Heart size={20} fill="currentColor" />
+            </div>
+
+            <div>
+              <div className="text-xl font-bold text-[#17352D]">
+                Vatsalya
+              </div>
+              <div className="text-[10px] uppercase tracking-[0.18em] text-[#66736D]">
+                Animal Welfare Network
+              </div>
+            </div>
           </Link>
 
           <div className="mb-9">
@@ -333,12 +328,12 @@ navigate(nextPath, {
                   Password
                 </label>
 
-                <a
-                href="mailto:hello@vatsalya.org?subject=Vatsalya%20account%20help"
-                className="text-xs font-semibold text-[#C96F4A] hover:underline"
-              >
-                Need sign-in help?
-              </a>
+                <button
+                  type="button"
+                  className="text-xs font-semibold text-[#C96F4A] hover:underline"
+                >
+                  Forgot password?
+                </button>
               </div>
 
               <div className="relative">
