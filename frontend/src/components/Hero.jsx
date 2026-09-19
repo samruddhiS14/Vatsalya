@@ -16,6 +16,7 @@ const priorityClass = {
   Medium: "bg-[#557B8C]/10 text-[#557B8C]",
 };
 
+
 export default function Hero() {
   const [activeCase, setActiveCase] = useState(0);
 
